@@ -1,0 +1,73 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Mike Kaufmann</title>
+
+    <link rel="stylesheet" href="style/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous">
+    </script>
+
+</head>
+
+<body class="module-border-wrap">
+
+    <!--  -->
+    <div class="background_video_container">
+        <video class="background_video_object" playsinline muted loop autoplay preload="auto" poster="assets/video/galaxy_nebula_thumbnail.jpg">
+            <source src="assets/video/galaxy_nebula.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- <div class="iframe_background_video_container">
+        <iframe 
+            class="background_video_object"
+            src="https://www.youtube.com/embed/d3ZVcvmsh48?autoplay=1&mute=1&vq=highres&fs=0&modestbranding=1&controls=0" 
+            allow="accelerometer; playsinline; encrypted-media; gyroscope; picture-in-picture" frameborder="0" allowfullscreen>
+        </iframe>
+    </div> -->
+
+    <!-- <img src="assets/logo/m_logo_white.png" class="main_logo" alt="M Logo"> -->
+
+    <div class="header">
+        
+        <!-- <h1 class="welcome_message">Hey</h1> -->
+        <h2 class="what_i_do_message"></h2><br>
+        <h2 class="what_i_do_in_detail_message"><a href="https://www.agentur-kaufmann.de/" class="what_i_do_message">I design brands</a><br> and their unique <br>experiences.</h2>
+
+        <br><br>
+        
+    </div>
+
+
+    <div class="body_content_container">
+
+        <!-- <section class="body_object_content_text">
+
+            <h4 >PAUL RAND</h4>
+            <h5>I value xyz</h5>
+            <a href="">https://www.youtube.com/watch?v=L4kSCd8yt00</a>
+
+        </section> -->
+
+        <!-- <h1>and design their unique experience.</h1> -->
+        <!-- <h2>and design their unique experience.</h2>
+        <h3>and design their unique experience.</h3>
+        <h4>and design their unique experience.</h4>    
+        <h5>and design their unique experience.</h5> -->
+
+    </div>
+
+    <script>
+        var mobilevideo = document.getElementsByTagName("video")[0];
+        mobilevideo.setAttribute("playsinline", "");
+        mobilevideo.setAttribute("muted", "");
+    </script>
+
+</body>
+
+</html>
