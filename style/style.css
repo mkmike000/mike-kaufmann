@@ -10,11 +10,22 @@
 body {
     margin: 0;
     padding: 0;
+    /* border: 10px solid #fff; */
     background: #000;
     background: linear-gradient(-45deg, #16161d, #111, #000, #16161d);
 	background-size: 400% 400%;
     animation: background-gradient 15s ease infinite;
 }
+
+body.module-border-wrap {
+    width: 100%;
+    height: 100%;   
+    padding: 1rem;
+    position: absolute;
+    background: linear-gradient(to right, red, purple);
+    padding: 10px;
+  }
+  
 
 
 
