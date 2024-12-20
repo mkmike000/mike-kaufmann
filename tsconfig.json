@@ -8,7 +8,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],        // General alias for everything in the root
+      "@/*": ["./*"], // General alias for everything in the root
       "@components/*": ["app/components/*"]  // Alias for your components folder
     },
     "esModuleInterop": true,
@@ -39,3 +39,4 @@
     "node_modules"
   ]
 }
+

@@ -1,5 +1,5 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
-import Navigation from './components/navigation';
 import Footer from './components/footer';
 
 export const metadata = {
@@ -20,11 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de">
-      <body>
-        <Navigation /> 
-        <main className="max-w-screen-xl justify-center">{children}</main>
-        <Footer /> 
+    <html lang="de" className="text-black bg-white dark:text-white dark:bg-black">
+      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
+        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">{children}</main>
+        <Footer />
+        <SpeedInsights/>
       </body>
     </html>
   );
