@@ -22,11 +22,18 @@ export const blogPost = defineType({
       name: 'publishedAt',
       title: 'Published At',
       type: 'datetime',
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+        timeFormat: 'HH:mm',
+      },
     }),
     defineField({
       name: 'vorschaubild',
       title: 'Vorschaubild',
       type: 'image',
+      options: {
+        hotspot: true, // Enables the cropping UI
+      },
     }),
     defineField({
       name: 'beschreibung',
