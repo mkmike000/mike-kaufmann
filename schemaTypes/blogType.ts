@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity';
 
 export const blogPost = defineType({
   name: 'blog',
@@ -14,11 +14,14 @@ export const blogPost = defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: {source: 'name' },
-      validation: (rule) => rule
-        .required()
-        .error(),
-      hidden: ({document}) => !document?.name,
+      options: { source: 'name' },
+      validation: (rule) => rule.required().error('Ein Slug muss gesetzt sein!'),
+      hidden: ({ document }) => !document?.name,
+    }),
+    defineField({
+      name: 'publishedAt',
+      title: 'Published At',
+      type: 'datetime',
     }),
     defineField({
       name: 'vorschaubild',
@@ -29,14 +32,14 @@ export const blogPost = defineType({
       name: 'beschreibung',
       title: 'Beschreibung',
       type: 'array',
-      of: [{type: 'block'}]
+      of: [{ type: 'block' }],
     }),
   ],
   preview: {
     select: {
       title: 'name',
-      subtitle: 'name',
+      subtitle: 'publishedAt',
       media: 'vorschaubild',
-    }
-  }
-})
+    },
+  },
+});

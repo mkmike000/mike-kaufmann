@@ -1,28 +1,33 @@
 import Link from 'next/link';
 import { client } from '../lib/sanity';
 
-function formatDate(date: string, short = false) {
-  const options: Intl.DateTimeFormatOptions = short
-    ? { year: 'numeric', month: 'short', day: 'numeric' }
-    : { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(date).toLocaleDateString('de-DE', options);
+// Funktion zur Formatierung des Datums
+function formatDate(date: string) {
+  const options: Intl.DateTimeFormatOptions = {
+    month: 'short', // Kurzer Monatsname
+    day: 'numeric', // Tag als Zahl
+    year: 'numeric', // Jahr vierstellig
+  };
+  return new Date(date).toLocaleDateString('de-DE', options); // Alternativ 'de-DE' für deutsches Format
 }
 
+// Query mit publishedAt-Feld
 const query = `*[_type == "blog"] | order(publishedAt desc) {
   _id,
-  title,
+  name,
   slug,
   publishedAt
 }`;
 
 interface BlogPost {
   _id: string;
-  title: string;
+  name: string;
   slug: { current: string };
   publishedAt: string;
 }
 
 export default async function BlogPosts() {
+  // Daten von Sanity abrufen
   const posts: BlogPost[] = await client.fetch(query);
 
   return (
@@ -44,11 +49,11 @@ export default async function BlogPosts() {
               href={`/blog/${post.slug.current}`}
             >
               <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-2">
-                <p className="text-neutral-600 dark:text-neutral-400 w-[100px] tabular-nums">
-                  {formatDate(post.publishedAt, false)}
+                <p className="text-neutral-600 dark:text-neutral-400 w-[120px] tabular-nums">
+                  {formatDate(post.publishedAt)}
                 </p>
                 <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                  {post.title}
+                  {post.name}
                 </p>
               </div>
             </Link>
