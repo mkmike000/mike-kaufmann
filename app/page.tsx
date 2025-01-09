@@ -1,17 +1,12 @@
 import Link from 'next/link';
 import { client } from '../lib/sanity';
+import { format } from 'date-fns';
+import { de } from 'date-fns/locale';
 
-// Funktion zur Formatierung des Datums
 function formatDate(date: string) {
-  const options: Intl.DateTimeFormatOptions = {
-    month: 'short', // Kurzer Monatsname
-    day: 'numeric', // Tag als Zahl
-    year: 'numeric', // Jahr vierstellig
-  };
-  return new Date(date).toLocaleDateString('de-DE', options); // Alternativ 'de-DE' für deutsches Format
+  return format(new Date(date), 'd MMM yyyy', { locale: de });
 }
 
-// Query mit publishedAt-Feld
 const query = `*[_type == "blog"] | order(publishedAt desc) {
   _id,
   name,
@@ -27,7 +22,6 @@ interface BlogPost {
 }
 
 export default async function BlogPosts() {
-  // Daten von Sanity abrufen
   const posts: BlogPost[] = await client.fetch(query);
 
   return (
@@ -36,7 +30,7 @@ export default async function BlogPosts() {
         <p>No posts available</p>
       ) : (
         posts
-          .filter((post) => post.slug && post.slug.current) // Nur gültige Slugs zulassen
+          .filter((post) => post.slug && post.slug.current)
           .sort((a, b) => {
             const dateA = new Date(a.publishedAt || '');
             const dateB = new Date(b.publishedAt || '');

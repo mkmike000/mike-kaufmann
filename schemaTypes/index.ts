@@ -1,3 +1,6 @@
 import { blogPost } from './blogType';
+import { testType } from './testType';
 
-export const schemaTypes = [blogPost];
+console.log("Schemas loaded:", blogPost, testType);
+
+export const schemaTypes = [blogPost, testType];

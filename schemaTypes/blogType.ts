@@ -16,7 +16,7 @@ export const blogPost = defineType({
       type: 'slug',
       options: { source: 'name' },
       validation: (rule) => rule.required().error('Ein Slug muss gesetzt sein!'),
-      hidden: ({ document }) => !document?.name,
+      // hidden: ({ document }) => !document?.name,
     }),
     defineField({
       name: 'publishedAt',
